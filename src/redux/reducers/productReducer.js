@@ -1,19 +1,14 @@
 import { SET_PRODUCTS } from '../types'
 
 const inititalState = {
-    products: [
-        {
-            id: 1,
-            title: "Tomás",
-            category: "FullStack developer"
-        }
-    ]
+    products: []
 }
 
 const ProductReducer = (state = inititalState, { type, payload} ) => {
     switch(type){
+        
         case SET_PRODUCTS:
-            return state
+            return {...state, products: payload}
         default:
             return state
     }

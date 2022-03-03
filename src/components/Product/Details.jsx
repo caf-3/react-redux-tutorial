@@ -27,7 +27,6 @@ function Details({ selectedProduct, setProduct, removeSelectedProduct }) {
     fetchProduct(productId);
 
     return async () => {
-      console.log("Component will unmount")
       removeSelectedProduct()
     }
   }, [productId])

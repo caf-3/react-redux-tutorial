@@ -4,20 +4,11 @@ import Single from './Single'
 import api from '../../utils/api'
 import * as ProductActions from '../../redux/actions/productActions'
 
-function List({ setProducts }) {
+function List({ fetchProducts }) {
 
   document.title = "Product listing"
   
-  const fetchProducts = async () => {
-    
-    try{
-      const response = await api.get('products');
-      const data = response.data;
-      setProducts(data)
-    }catch(err){
-      console.log({err})
-    }
-  }
+  
   useEffect(() => {
     fetchProducts()
   }, [])
@@ -34,7 +25,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setProducts: (products) => dispatch(ProductActions.setProducts(products))
+  fetchProducts: () => dispatch(ProductActions.fetchProducts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(List)

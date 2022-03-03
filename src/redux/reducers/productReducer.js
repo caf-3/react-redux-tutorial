@@ -1,4 +1,4 @@
-import { SET_PRODUCTS, SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT } from '../types'
+import {  SELECTED_PRODUCT, REMOVE_SELECTED_PRODUCT, FETCH_PRODUCTS } from '../types'
 
 const inititalState = {
     products: [],
@@ -6,12 +6,8 @@ const inititalState = {
 }
 
 const ProductReducer = (state = inititalState, { type, payload} ) => {
-    console.log({type})
-
+    console.log({type, payload})
     switch(type){
-        case SET_PRODUCTS:
-
-            return {...state, products: payload}
         case SELECTED_PRODUCT:
 
             return { ...state, selectedProduct: payload}
@@ -19,6 +15,10 @@ const ProductReducer = (state = inititalState, { type, payload} ) => {
         case REMOVE_SELECTED_PRODUCT:
             
             return { ...state, selectedProduct: {} }
+
+        case FETCH_PRODUCTS:
+
+            return { ...state, products: payload}
         default:
             return state
     }

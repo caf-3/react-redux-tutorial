@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function Single({ products }) {
-    console.log({ products })
     return (
         products.map(product => (
             <div className="four wide column" key={product.id}>
